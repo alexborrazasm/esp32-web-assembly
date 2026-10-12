@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>esp32-wasm</title>
+  <link rel="stylesheet" href="xterm.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>esp32-wasm</h1>
+    <span id="conn" class="badge off">disconnected</span>
+    <span id="info"></span>
+    <button id="run" class="btn" title="Restart the uploaded module">Run</button>
+    <button id="stop" class="btn" title="Stop the running module">Stop</button>
+    <button id="clear" class="btn" title="Clear the console">Clear</button>
+    <button id="reset" class="btn danger" title="Reboot the board">Reset</button>
+  </header>
+
+  <section id="drop">
+    <input type="file" id="file" accept=".wasm,application/wasm" hidden>
+    <p>Drop a <b>.wasm</b> here or <button id="pick">choose a file</button></p>
+    <progress id="bar" value="0" max="100" hidden></progress>
+    <span id="msg"></span>
+  </section>
+
+  <main id="term"></main>
+
+  <form id="cmd" autocomplete="off">
+    <span class="prompt">&gt;</span>
+    <input id="line" type="text" placeholder="Type a command and press Enter" spellcheck="false" disabled>
+    <button type="submit" class="btn">Send</button>
+  </form>
+
+  <script src="xterm.js"></script>
+  <script src="xterm-addon-fit.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
